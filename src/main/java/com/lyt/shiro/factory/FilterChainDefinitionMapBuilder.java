@@ -1,4 +1,4 @@
-package com.atguigu.shiro.factory;
+package com.lyt.shiro.factory;
 
 import java.util.LinkedHashMap;
 

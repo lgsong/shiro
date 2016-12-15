@@ -7,6 +7,7 @@
 	<name>shiro-2</name>
 	<url>http://maven.apache.org</url>
 	<!-- 指定Maven 仓库 -->
+	
 	<repositories>
 		<repository>
 			<id>aliyun</id>

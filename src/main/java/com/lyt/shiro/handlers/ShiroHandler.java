@@ -23,7 +23,7 @@ public class ShiroHandler {
             // rememberme
             token.setRememberMe(true);//这个是记住用户，当用户登出之后才会取消
             try {
-            	System.out.println("1. 获取到的用户名是：" + username + "， hashCode是：" + token.hashCode());
+//            	System.out.println("1. 获取到的用户名是：" + username + "， hashCode是：" + token.hashCode());
             	// 执行登录. 
                 currentUser.login(token);
             } 

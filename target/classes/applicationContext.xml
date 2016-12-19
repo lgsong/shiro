@@ -113,10 +113,6 @@
         <property name="securityManager" ref="securityManager"/>
     </bean>
 
-    <!-- Define the Shiro Filter here (as a FactoryBean) instead of directly in web.xml -
-         web.xml uses the DelegatingFilterProxy to access this bean.  This allows us
-         to wire things with more control as well utilize nice Spring things such as
-         PropertiesPlaceholderConfigurer and abstract beans or anything else we might need: -->
     <!--  
     6. 配置 ShiroFilter. 
     6.1 id 必须和 web.xml 文件中配置的 DelegatingFilterProxy 的 <filter-name> 一致.
@@ -127,9 +123,6 @@
         <property name="loginUrl" value="/login.jsp"/>
         <property name="successUrl" value="/list.jsp"/>
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
-        
-        <property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"></property>
-        
         <!--  
         	配置哪些页面需要受保护. 
         	以及访问这些页面需要的权限. 
@@ -153,6 +146,7 @@
             </value>
         </property>
         -->
+        <property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"></property>
     </bean>
     
     <!-- 配置一个 bean, 该 bean 实际上是一个 Map. 通过实例工厂方法的方式 -->
@@ -162,7 +156,6 @@
     <bean id="filterChainDefinitionMapBuilder"
     	class="com.lyt.shiro.factory.FilterChainDefinitionMapBuilder"></bean>
     
-    <bean id="shiroService"
-    	class="com.lyt.shiro.services.ShiroService"></bean>
+    <bean id="shiroService" class="com.lyt.shiro.services.ShiroService"></bean>
 
 </beans>

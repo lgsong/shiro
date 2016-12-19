@@ -10,7 +10,7 @@
          user.dir - User's current working directory
          java.io.tmpdir - Default temp file path -->
     <diskStore path="java.io.tmpdir"/>
-    
+    <!-- 授权 -->
     <cache name="authorizationCache"
            eternal="false"
            timeToIdleSeconds="3600"
@@ -18,7 +18,7 @@
            overflowToDisk="false"
            statistics="true">
     </cache>
-
+<!-- 认证 -->
     <cache name="authenticationCache"
            eternal="false"
            timeToIdleSeconds="3600"

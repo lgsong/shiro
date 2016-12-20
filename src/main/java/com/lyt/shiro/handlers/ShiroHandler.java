@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ShiroHandler {
 	
 	@RequestMapping("/login")
-	public String login(@RequestParam("username") String username, @RequestParam("password") String password){
+	public String login(@RequestParam("username") String username, @RequestParam("password") String password, 
+			@RequestParam("rememberme") String rememberme){
 		// 1.获取当前的 Subject. 调用 SecurityUtils.getSubject();
         Subject currentUser = SecurityUtils.getSubject();
 
@@ -21,7 +22,13 @@ public class ShiroHandler {
         	// 2.把用户名和密码封装为 UsernamePasswordToken 对象
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             // rememberme
-            token.setRememberMe(true);//这个是记住用户，当用户登出之后才会取消
+            System.out.println( "rememberme 是 ：" + rememberme);
+            if(rememberme.equals("on")){
+            	token.setRememberMe(true);//这个是记住用户，当用户登出之后才会取消
+            }else{
+            	token.setRememberMe(false);//这个是记住用户，当用户登出之后才会取消
+            }
+            
             try {
 //            	System.out.println("1. 获取到的用户名是：" + username + "， hashCode是：" + token.hashCode());
             	// 执行登录. 
@@ -36,5 +43,10 @@ public class ShiroHandler {
         }
 		
 		return "redirect:/list.jsp";
+	}
+	
+	@RequestMapping("/testShiroAnnotation")
+	public String testShiroAnnotation(){
+		return "redirect:/index.jsp";
 	}
 }

@@ -9,12 +9,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>Insert title here</title>
 </head>
 <body>
-	<h4>登录页面..注意。。。。。。。暂时没做出来全面的，所以这里必须选中复选框！！！</h4>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<h4>登录页面...</h4>
+	<script type="text/javascript">
+		function login(){
+		var a = $("#checkBoxId").attr("checked",'');
+		var b = $("#checkBoxId").attr("checked",true);//打勾 
+		alert("a = " + a + ",b=" +b)
+		}
+	</script>
 	<form action="shiro/login" method="POST" id="form1">
+		<input type="hidden" name="rememberme" id="id" value=""> 
 		用户名: <input type="text" name="username" /> <br>
 		<br> 密码: <input type="password" name="password" /> <br>
-		<br> 记住我：<input type="checkbox" name="rememberme" id="rememberme"> <br>
+		<br> 记住我：<input type="checkbox" name="checkboxName" id="checkBoxId"> <br>
 		<br> 
+		<input type="button" value="提交1" onclick="login();" /> 
 				<input type="submit" value="提交2"/>
 	</form>
 

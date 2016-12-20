@@ -21,8 +21,8 @@
     			<ref bean="secondRealm"/>
     		</list>
         </property>
-        
-        <property name="rememberMeManager.cookie.maxAge" value="10"></property>
+        <!-- 设置RememberMe对应的cookie 记录时间 ，以秒为单位-->
+        <property name="rememberMeManager.cookie.maxAge" value="100"></property>
     </bean>
 
     <!-- Let's use some enterprise caching support for better performance.  You can replace this with any enterprise
